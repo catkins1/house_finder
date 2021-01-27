@@ -10,7 +10,7 @@ def db_connect():
 
     """
     client = pymongo.MongoClient(
-        "mongodb://localhost:27017/",#?compressors=disabled&gssapiServiceName=mongodb",
+        "mongodb://localhost:27017/",
         username=os.environ["MONGO_INITDB_ROOT_USERNAME"],
         password=os.environ["MONGO_INITDB_ROOT_PASSWORD"],
     )
