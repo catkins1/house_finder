@@ -1,4 +1,3 @@
-from src.get_google_data import database_connect
 import logging
 import requests
 import os
@@ -8,7 +7,6 @@ config = configparser.ConfigParser()
 config.read("config.ini")
 logging.getLogger(__name__)
 
-db = database_connect.db_connect()
 
 def get_directions_data(origin: str, destination: str, mode: str, arrival_time: int) -> dict:
     """
@@ -22,7 +20,7 @@ def get_directions_data(origin: str, destination: str, mode: str, arrival_time: 
     Returns:
         dict: Json response from the google transit API
     """
-    api_key = os.environ("GOOGLE_API_KEY")
+    api_key = os.environ["GOOGLE_API_KEY"]
     url = config["General"]["google_transit_api_endpoint"]
     params = {
         "origin": origin,
