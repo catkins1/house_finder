@@ -4,7 +4,9 @@ import os
 import configparser
 
 config = configparser.ConfigParser()
-config.read("config.ini")
+#todo: This can't be right?
+config_path = "../config.ini" if "test" in os.path.abspath(".").lower() else "config.ini"
+config.read(config_path)
 logging.getLogger(__name__)
 
 

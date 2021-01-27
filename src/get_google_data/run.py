@@ -37,3 +37,9 @@ for origin_postcode in origin_postcodes:
                 mode="transit",
                 arrival_time=arrival_time
             )
+            google_result_json["origin_postcode"] = origin_postcode
+            google_result_json["destination_postcode"] = destination_postcode
+            google_result_json["mode"] = "transit"
+            google_result_json["arrival_time"] = arrival_time
+
+            google_transit_collection.insert_one(google_result_json)
